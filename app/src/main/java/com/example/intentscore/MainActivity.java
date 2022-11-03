@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = new Intent(this, MatchActivity.class);
-        intent.putExtra("home_team", "Home 2 Team");
+        intent.putExtra("home_team", "Ubahlah text ini sesuai input home");
         // past image home to next activity
         if(imgHome != null){
             imgHome.buildDrawingCache();
