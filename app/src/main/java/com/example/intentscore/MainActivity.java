@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int GALLERY_REQUEST_CODE_IMAGE_ONE = 1;
     private static final String TAG = MainActivity.class.getCanonicalName();
 
+    public Bitmap bitmap;
     private ImageView imgHome;
 
     @Override
@@ -40,8 +42,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void handlerNext(View view) {
+
+
         Intent intent = new Intent(this, MatchActivity.class);
         intent.putExtra("home_team", "Home 2 Team");
+        // past image home to next activity
+        if(imgHome != null){
+            imgHome.buildDrawingCache();
+            Bitmap bitmap = imgHome.getDrawingCache();
+            intent.putExtra("image_home_bitmap", bitmap);
+        }
+
         startActivity(intent);
     }
 
@@ -63,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             if (data != null) {
                 try {
                     Uri imageUri = data.getData();
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
                     // if img home / set image
                     if(requestCode == GALLERY_REQUEST_CODE_IMAGE_ONE){
                         imgHome.setImageBitmap(bitmap);

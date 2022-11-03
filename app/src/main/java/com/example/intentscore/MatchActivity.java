@@ -3,15 +3,18 @@ package com.example.intentscore;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MatchActivity extends AppCompatActivity {
     private TextView textHome;
 
     private TextView scoreHome;
-    private TextView scoreAway;
+
+    private ImageView homeLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,8 @@ public class MatchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_match);
 
         textHome = findViewById(R.id.txt_home);
+
+        homeLogo = findViewById(R.id.home_logo);
 
         scoreHome = findViewById(R.id.score_home);
 
@@ -30,6 +35,8 @@ public class MatchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String home = intent.getStringExtra("home_team");
         textHome.setText(home);
+        Bitmap imgHome = (Bitmap) intent.getParcelableExtra("image_home_bitmap");
+        homeLogo.setImageBitmap(imgHome);
 
     }
 
