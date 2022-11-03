@@ -11,7 +11,6 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         //TODO
-        //1.Menampilkan detail pemenang pertandingan berdasarkan score tertinggi
-        //2.Tombol add score menambahkan satu angka dari angka 0, setiap kali di tekan
+        //1.Menampilkan detail pemenang pertandingan berdasarkan score tertinggi data berasal dari MatchActivity
     }
 }
