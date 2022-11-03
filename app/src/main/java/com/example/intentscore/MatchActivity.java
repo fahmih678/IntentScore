@@ -21,7 +21,6 @@ public class MatchActivity extends AppCompatActivity {
         textHome = findViewById(R.id.txt_home);
 
         scoreHome = findViewById(R.id.score_home);
-        scoreAway = findViewById(R.id.score_away);
 
         //TODO
         //1.Menampilkan detail match sesuai data dari main activity
